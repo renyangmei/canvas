@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滑块验证码</title>
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.center{
+			/*margin: 100px 500px;*/
+		}
+	</style>
+	<body>
+		<div class="center">
+			<img src="bg.jpg" alt="" class="bg" style="display:none"/>
+			<img src="logo.png" alt="" class="logo"  style="display:none"/>
+			<canvas id="myCanvas" width="275" height="120"></canvas>		
+		</div>
+	</body>
+	<script>
+		var canvas=document.getElementById("myCanvas");
+		var cobj=canvas.getContext("2d");
+		var bg=document.getElementsByClassName("bg")[0]; /*目标图像*/
+		var logo=document.getElementsByClassName("logo")[0]; /*源图像*/
+		bg.onload=function(){
+			cobj.drawImage(bg,0,0,1024,477,0,0,275,120);			
+		}
+		logo.onload=function(){
+			cobj.drawImage(logo,0,0,581,493,0,0,141,120);	/*120/493*581*/		
+		}
+		cobj.globalComposeteOperation="source-over";
+	</script>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>canvas</title>
+		<link rel="stylesheet" href="shape.css" />
+		<script src="js/jquery.min.js"></script>
+		<script src="canvas.js"></script>
+		<script src="shape.js"></script>
+	</head>
+	<body>
+		<div class="canvas">
+			<div class="top">
+				<a href="javascript:;" class="selected">文件</a>
+				<a href="javascript:;">画笔</a>
+				<a href="javascript:;">颜色</a>
+				<a href="javascript:;">类型</a>
+				<a href="javascript:;">线条宽度</a>
+				<a href="javascript:;" class="eraserOpt">橡皮擦</a>
+				<a href="javascript:;">滤镜</a>
+				<a href="javascript:;" class="text">文字</a>
+			</div>
+			<div class="bottom">
+				<div class="left">
+					<ul class="menu" style="display:block">
+						<li>新建</li>
+						<li>返回</li>
+						<li>保存</li>
+						<li>重置</li>
+						<li class="open">
+							打开
+							<input type="file" class="file"/>
+						</li>
+					</ul>
+					<ul class="menu" style="display:none">
+						<li data-role="line">线条</li>
+						<li data-role="rect">矩形</li>
+						<li data-role="arc">圆</li>
+						<li data-role="bian">多边形</li>
+						<li data-role="jiao">多角形</li>
+						<li data-role="pen">钢笔</li>
+					</ul>
+					<ul class="menu" style="display:none">
+						<li>
+							<input type="color" data-role="strokeStyle"/>
+						</li>
+						<li>
+							<input type="color" data-role="fillStyle" />
+						</li>
+					</ul>
+					<ul class="menu" style="display:none">
+						<li data-role="stroke">画线</li>
+						<li data-role="fill">填充</li>
+					</ul>
+					<ul class="menu" style="display:none">
+						<li data-role="1">细</li>
+						<li data-role="5">中</li>
+						<li data-role="10">粗</li>
+						<div class="import">
+							<input type="text" placeholder="请输入数字" />
+						</div>
+					</ul>
+					<ul class="menu" style="display:none">
+						<li>
+							<input type="number" placeholder="请输入大小" value="10" />
+						</li>
+					</ul>
+					<ul class="menu" style="display: none;">
+						<li>反相</li>
+						<!--<li>高斯模糊</li>-->
+						<!--<li>马赛克</li>-->
+					</ul>
+				</div>
+				<div class="right">
+					<div class="eraser"></div>
+					<div class="copy"></div>
+					<canvas id="myCanvas" width="700" height="360">
+						您的浏览器不支持canvas
+					</canvas>
+					<textarea class="area" cols="30" rows="10" style="position: absolute;display:none"></textarea>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		
+		/*
+		 str
+		 textbaseline
+		 font
+		 width
+		 height
+		 initx
+		 inity
+		 for
+		 filltext
+		 measuretext
+		 if
+		 * */
+		
+		
+//		var grad=ctx.createLinearGradient(0,0,170,0);
+//		grad.addColorStop(0,"black");
+//		grad.addColorStop(1,"white");
+//		ctx.fillStyle=grad;
+//		ctx.fillRect(0,0,200,100);
+		
+		//画直线
+//		var arr=[];
+//		canvas.onmousedown=function(e){
+//			var ox=e.offsetX;
+//			var oy=e.offsetY;
+//			canvas.onmousemove=function(e){
+//				var endx=e.offsetX;
+//				var endy=e.offsetY;
+//				ctx.clearRect(0,0,500,250);/*在画当前线之前要清空所有的线*/
+//				if(arr.length>0){
+//					ctx.putImageData(arr[arr.length-1],0,0);
+//				}
+//				ctx.beginPath(); /*开始划线*/
+//				ctx.moveTo(ox,oy); /*开始点*/
+//				ctx.lineTo(endx,endy); /*结束点*/
+//				ctx.stroke(); /*绘制线条*/
+//			}
+//			canvas.onmouseup=function(e){				
+//				arr.push(ctx.getImageData(0,0,500,250));/*抬起时保存图片信息*/
+//				canvas.onmousemove=null;
+//				canvas.onmouseup=null;
+//			}
+//		}
+		
+		//画笔	
+//		canvas.onmousedown=function(e){
+//			var ox=e.offsetX;
+//			var oy=e.offsetY;
+//				ctx.beginPath(); /*开始划线*/
+//			canvas.onmousemove=function(e){
+//				var endx=e.offsetX;
+//				var endy=e.offsetY;
+//				ctx.moveTo(ox,oy); /*开始点*/
+//				ctx.lineTo(endx,endy); /*结束点*/
+//				ctx.stroke(); /*绘制线条*/
+//			}
+//			canvas.onmouseup=function(e){	
+//				var endx=e.offsetX;
+//				var endy=e.offsetY;
+//				ctx.moveTo(ox,oy); /*开始点*/
+//				ctx.lineTo(endx,endy); /*结束点*/
+//				ctx.stroke(); /*绘制线条*/
+//				canvas.onmousemove=null;
+//				canvas.onmouseup=null;
+//			}
+//		}
+
+		//画正方形
+//		var arr=[];
+//		canvas.onmousedown=function(e){
+//			var ox=e.offsetX;
+//			var oy=e.offsetY;
+//			canvas.onmousemove=function(e){
+//				var endx=e.offsetX;
+//				var endy=e.offsetY;
+//				ctx.clearRect(0,0,500,250);/*在画当前线之前要清空所有的线*/
+//				if(arr.length>0){
+//					ctx.putImageData(arr[arr.length-1],0,0);
+//				}
+//				ctx.beginPath(); /*开始划线*/
+//				ctx.rect(ox,oy,endx-ox,endy-oy); /*开始点 尺寸*/
+//				ctx.stroke(); /*绘制线条*/
+//			}
+//			canvas.onmouseup=function(e){				
+//				arr.push(ctx.getImageData(0,0,500,250));/*抬起时保存图片信息*/
+//				canvas.onmousemove=null;
+//				canvas.onmouseup=null;
+//			}
+//		}
+		
+
+			
+	</script>
+</html>

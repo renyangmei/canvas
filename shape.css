@@ -1,0 +1,112 @@
+@font-face {
+	font-family:PingFang Regular;
+	src: url("font/PingFang Regular.ttf");
+}
+@font-face {
+	font-family:yahei;
+	src: url("font/yahei.ttf");
+}
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.canvas{
+	width: 900px;
+	height: 400px;
+	background: #fff;
+	border: 1px solid #444;
+	margin: 50px auto;
+	position: relative;
+}
+.copy{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.eraser{
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: 1px solid #000;
+	display: none;
+}
+.top{
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #ccc;
+	color: #fff;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.top>a{
+	width: 12%;
+	display: inline-block;
+	font-size: 18px;
+	/*font-weight: 700;*/
+	color: #444;
+	font-family:yahei;
+}
+.top a.selected{
+	color: #e60039;
+}
+.top a:hover, ul.menu li:hover{
+	color: #e60039;
+}
+.bottom{
+	width: 100%;
+	height: 360px;
+	position: absolute;
+	top: 40px;
+	left: 0;
+	/*background: red;*/
+}
+.left{
+	width: 100px;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*background: teal;*/
+	border-right: 1px solid #BFBFBF;
+}
+ul.menu li, div.import{
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid #BFBFBF;
+	text-align: center;
+	line-height: 30px;
+	font-family:PingFang Regular;
+	cursor: pointer;
+	position: relative;
+}
+ul.menu li.first{
+	color: #e60039;
+	font-weight: 700;
+}
+.right{
+	height: 360px;
+	position: absolute;
+	left: 103px;
+	top: 0;
+}
+input[type=text], input[type=number]{
+	width: 80px;
+}
+input[type=file]{
+	opacity: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
